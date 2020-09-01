@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+    <!-- Can commment out 2nd div -->
+    </div>
+    </div>
+
+    <!-- ACTION:  VERIFY variables-->
+    <!-- ACTION:  RESEARCH how to get variables into html -->
+    <div class="container">
+        <!-- LATEST MARS NEWS-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Latest Mars News</h2>
+                <h3>{{mars.news_title}}</h3>
+                <p>{{mars.news_desc}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- FEATURED IMAGE -->
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+                <img src="{{ mars.featured_img_url }}" alt="Featured Image">
+            </div>
+            <!-- MARS FACTS -->
+            <div class="col-md-4">
+                <h4>Mars Facts</h2>
+                {{mars_facts_html}}
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- MARS HEMISPHERES TEXT -->
+            <div class="col-md-12">
+                <h3>Mars Hemispheres</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- HEMISPHERE IMAGES ROW 1 (COLUMN 1 & 2) -->
+            <div class="col-md-6">
+                <!-- changed .img_url to [img_url] -->
+                <!-- loop through hemi_1 dictionary -->
+                {% for element in hemi_1 %}
+                <img src="{{ element.img_url }}" alt="Hemisphere 1 Image">
+                <h2>{{element.title}}</h2>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+                <!-- loop through hemi_1 dictionary -->
+                {% for element in hemi_2 %}
+                <img src="{{ element.img_url }}" alt="Hemisphere 1 Image">
+                <h2>{{element.title}}</h2>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- HEMISPHERE IMAGES ROW 2 (COLUMN 1 & 2) -->
+            <div class="col-md-6">
+                <!-- loop through hemi_1 dictionary -->
+                {% for element in hemi_3 %}
+                <img src="{{ element.img_url }}" alt="Hemisphere 1 Image">
+                <h2>{{element.title}}</h2>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+                <!-- loop through hemi_1 dictionary -->
+                {% for element in hemi_4 %}
+                <img src="{{ element.img_url }}" alt="Hemisphere 1 Image">
+                <h2>{{element.title}}</h2>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
